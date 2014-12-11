@@ -5,6 +5,7 @@ else
 endif
 
 command -nargs=1 SaveQuickFixList call SaveQuickFixList(<f-args>)
+command -nargs=0 AddLineToQuickFix call AddLineToQuickFix()
 
 function SaveQuickFixList(fname)
   let qflist = getqflist()
@@ -17,3 +18,6 @@ function SaveQuickFixList(fname)
   call writefile(result, a:fname)
 endfunction
 
+function AddLineToQuickFix()
+  caddexpr expand('%') . ':' . line('.') .  ': ' . getline('.')
+endfunction
