@@ -4,7 +4,7 @@ else
   let g:loaded_quickfix_tweaks = 1
 endif
 
-command -nargs=1 SaveQuickFixList call SaveQuickFixList(<f-args>)
+command -nargs=1 -complete=file SaveQuickFixList call SaveQuickFixList(<f-args>)
 command -nargs=0 AddLineToQuickFix call AddLineToQuickFix()
 
 function SaveQuickFixList(fname)
